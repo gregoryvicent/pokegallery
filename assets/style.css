@@ -1,0 +1,26 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Generals */
+
+footer {
+  background-color: brown;
+}
+
+header {
+  background-color: aqua;
+}
+
+main {
+  background-color: chartreuse;
+}
+
+/* Pokemons */
+
+.Pokemon-box {
+  background-color: purple;
+}
