@@ -1,3 +1,3 @@
-import greet from "./newModule.js";
+import AllPokemon from "./lib/pokemons/all-pokemon.js";
 
-greet("Gregory");
+const fetchPokemon: AllPokemon = new AllPokemon("https://pokeapi.co/api/v2/pokemon");
