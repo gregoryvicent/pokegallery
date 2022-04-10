@@ -19,6 +19,8 @@ export default class PrintAllPokemons extends Print {
     let $fragment: Node = document.createDocumentFragment();
 
     $boxPokemons.setAttribute("id", "pokemon-box");
+    $boxPokemons.classList.add("row");
+    $boxPokemons.classList.add("row-cols-4");
 
     dataPokemon.results.forEach((element: pokemonInterface) => {
       const $articlePokemon: HTMLElement = document.createElement("article"),
@@ -26,6 +28,13 @@ export default class PrintAllPokemons extends Print {
         $imgPokemon: HTMLElement = document.createElement("img"),
         $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
         $textPokemon: Node = document.createTextNode(element.name);
+
+      $articlePokemon.classList.add("col");
+      $figcaptionPokemon.classList.add("text-center");
+      $imgPokemon.classList.add("img-fluid")
+      $imgPokemon.classList.add("rounded")
+      $imgPokemon.classList.add("mx-auto")
+      $imgPokemon.classList.add("d-block")
 
       $imgPokemon.setAttribute("alt", element.name);
       $imgPokemon.setAttribute("title", element.name);
@@ -54,6 +63,8 @@ export default class PrintAllPokemons extends Print {
     let $fragment: Node = document.createDocumentFragment();
 
     $boxPokemons.setAttribute("id", "pokemon-box");
+    $boxPokemons.classList.add("row");
+    $boxPokemons.classList.add("row-cols-4");
 
     dataPokemon.pokemon.forEach((element: any) => {
       const $articlePokemon: HTMLElement = document.createElement("article"),
@@ -64,6 +75,13 @@ export default class PrintAllPokemons extends Print {
 
       $imgPokemon.setAttribute("alt", element.pokemon.name);
       $imgPokemon.setAttribute("title", element.pokemon.name);
+
+      $articlePokemon.classList.add("col");
+      $figcaptionPokemon.classList.add("text-center");
+      $imgPokemon.classList.add("img-fluid")
+      $imgPokemon.classList.add("rounded")
+      $imgPokemon.classList.add("mx-auto")
+      $imgPokemon.classList.add("d-block")
 
       const getImpPokemon: GetImgPokemon = new GetImgPokemon(
         element.pokemon.url,

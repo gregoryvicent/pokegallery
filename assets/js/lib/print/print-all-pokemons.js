@@ -9,8 +9,16 @@ export default class PrintAllPokemons extends Print {
         const dataPokemon = data, $boxPokemons = document.createElement("div");
         let $fragment = document.createDocumentFragment();
         $boxPokemons.setAttribute("id", "pokemon-box");
+        $boxPokemons.classList.add("row");
+        $boxPokemons.classList.add("row-cols-4");
         dataPokemon.results.forEach((element) => {
             const $articlePokemon = document.createElement("article"), $figurePokemon = document.createElement("figure"), $imgPokemon = document.createElement("img"), $figcaptionPokemon = document.createElement("figcaption"), $textPokemon = document.createTextNode(element.name);
+            $articlePokemon.classList.add("col");
+            $figcaptionPokemon.classList.add("text-center");
+            $imgPokemon.classList.add("img-fluid");
+            $imgPokemon.classList.add("rounded");
+            $imgPokemon.classList.add("mx-auto");
+            $imgPokemon.classList.add("d-block");
             $imgPokemon.setAttribute("alt", element.name);
             $imgPokemon.setAttribute("title", element.name);
             const getImpPokemon = new GetImgPokemon(element.url, $imgPokemon);
@@ -28,10 +36,18 @@ export default class PrintAllPokemons extends Print {
         const dataPokemon = data, $boxPokemons = document.createElement("div");
         let $fragment = document.createDocumentFragment();
         $boxPokemons.setAttribute("id", "pokemon-box");
+        $boxPokemons.classList.add("row");
+        $boxPokemons.classList.add("row-cols-4");
         dataPokemon.pokemon.forEach((element) => {
             const $articlePokemon = document.createElement("article"), $figurePokemon = document.createElement("figure"), $imgPokemon = document.createElement("img"), $figcaptionPokemon = document.createElement("figcaption"), $textPokemon = document.createTextNode(element.pokemon.name);
             $imgPokemon.setAttribute("alt", element.pokemon.name);
             $imgPokemon.setAttribute("title", element.pokemon.name);
+            $articlePokemon.classList.add("col");
+            $figcaptionPokemon.classList.add("text-center");
+            $imgPokemon.classList.add("img-fluid");
+            $imgPokemon.classList.add("rounded");
+            $imgPokemon.classList.add("mx-auto");
+            $imgPokemon.classList.add("d-block");
             const getImpPokemon = new GetImgPokemon(element.pokemon.url, $imgPokemon);
             $figcaptionPokemon.appendChild($textPokemon);
             $figurePokemon.appendChild($imgPokemon);

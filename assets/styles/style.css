@@ -19,6 +19,13 @@ main {
   background-color: chartreuse;
 }
 
+/* Header */
+
+.Header {
+  background: url("../img/backgroundHeader.png");
+  height: 13vh;
+}
+
 /* Pokemons */
 
 .Pokemon-box {
