@@ -1,12 +1,11 @@
 import Print from "./print.js";
 export default class PrintImgPokemon extends Print {
-    constructor(data) {
+    constructor(data, imgElement) {
         super();
         this.data = data;
+        this.imgElement = imgElement;
     }
     printPokemons() {
-        this.data.sprites.forEach((element) => {
-            console.log(element.front_default);
-        });
+        this.imgElement.setAttribute("src", this.data.sprites.front_default);
     }
 }

@@ -25,11 +25,11 @@ export default class PrintAllPokemons extends Print {
       $imgPokemon.setAttribute("alt", element.name);
       $imgPokemon.setAttribute("title", element.name);
 
-      const getImpPokemon: GetImgPokemon = new GetImgPokemon(element.url);
+      const getImpPokemon: GetImgPokemon = new GetImgPokemon(element.url, $imgPokemon);
 
       $figcaptionPokemon.appendChild($textPokemon);
-      $figurePokemon.appendChild($figcaptionPokemon);
       $figurePokemon.appendChild($imgPokemon);
+      $figurePokemon.appendChild($figcaptionPokemon);
       $articlePokemon.appendChild($figurePokemon);
 
       $fragment.appendChild($articlePokemon);

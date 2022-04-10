@@ -1,5 +1,5 @@
 export default abstract class FetchPokemon {
-  constructor(url: string) {
+  constructor(url: string, htmlElement?: HTMLElement) {
     fetch(url)
       .then((res) => {
         if (!res.ok)

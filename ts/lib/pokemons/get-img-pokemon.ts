@@ -3,12 +3,15 @@ import PrintImgPokemon from "../print/print-img-pokemon.js";
 import { singlePokemonInterface } from "../interfaces.js";
 
 export default class GetImgPokemon extends FetchPokemon {
-  constructor(data: string) {
+  private imgElementHtml: HTMLElement;
+
+  constructor(data: string, htmlElement: HTMLElement) {
     super(data);
+    this.imgElementHtml = htmlElement;
   }
 
   protected ejecute(response: singlePokemonInterface): void {
-    const printImgPokemon: PrintImgPokemon = new PrintImgPokemon(response);
+    const printImgPokemon: PrintImgPokemon = new PrintImgPokemon(response, this.imgElementHtml);
     
     printImgPokemon.printPokemons();
   }

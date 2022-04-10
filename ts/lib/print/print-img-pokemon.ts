@@ -3,15 +3,15 @@ import { singlePokemonInterface } from "../interfaces.js";
 
 export default class PrintImgPokemon extends Print {
   private data: singlePokemonInterface;
+  private imgElement: HTMLElement;
   
-  constructor(data: singlePokemonInterface) {
+  constructor(data: singlePokemonInterface, imgElement: HTMLElement) {
     super();
     this.data = data;
+    this.imgElement = imgElement;
   }
 
   public printPokemons(): void {
-    this.data.sprites.forEach((element) => {
-      console.log(element.front_default)
-    })
+    this.imgElement.setAttribute("src", this.data.sprites.front_default);
   }
 }

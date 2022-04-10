@@ -20,6 +20,6 @@ export interface pokemonInterface {
 export interface singlePokemonInterface {
   name: string;
   sprites: {
-    front_default?: string;
-  }[];
+    front_default: string;
+  };
 }
