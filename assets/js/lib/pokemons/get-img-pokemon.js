@@ -6,7 +6,7 @@ export default class GetImgPokemon extends FetchPokemon {
         this.imgElementHtml = htmlElement;
     }
     ejecute(response) {
-        const printImgPokemon = new PrintImgPokemon(response, this.imgElementHtml);
-        printImgPokemon.printPokemons();
+        const printImgPokemon = new PrintImgPokemon(this.imgElementHtml);
+        printImgPokemon.printPokemons(response);
     }
 }

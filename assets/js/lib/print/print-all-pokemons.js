@@ -1,14 +1,14 @@
 import Print from "./print.js";
 import GetImgPokemon from "../pokemons/get-img-pokemon.js";
 export default class PrintAllPokemons extends Print {
-    constructor(data) {
+    constructor() {
         super();
-        this.data = data;
     }
-    printPokemons() {
+    printPokemons(data) {
         var _a;
-        const dataPokemon = this.data, $boxPokemons = document.createElement("div");
+        const dataPokemon = data, $boxPokemons = document.createElement("div");
         let $fragment = document.createDocumentFragment();
+        $boxPokemons.setAttribute("id", "pokemon-box");
         dataPokemon.results.forEach((element) => {
             const $articlePokemon = document.createElement("article"), $figurePokemon = document.createElement("figure"), $imgPokemon = document.createElement("img"), $figcaptionPokemon = document.createElement("figcaption"), $textPokemon = document.createTextNode(element.name);
             $imgPokemon.setAttribute("alt", element.name);
@@ -20,6 +20,42 @@ export default class PrintAllPokemons extends Print {
             $articlePokemon.appendChild($figurePokemon);
             $fragment.appendChild($articlePokemon);
         });
+        $boxPokemons.appendChild($fragment);
+        (_a = this.htmlElements.$pokemon) === null || _a === void 0 ? void 0 : _a.appendChild($boxPokemons);
+    }
+    printTypePokemons(data) {
+        var _a;
+        const dataPokemon = data, $boxPokemons = document.createElement("div");
+        let $fragment = document.createDocumentFragment();
+        $boxPokemons.setAttribute("id", "pokemon-box");
+        dataPokemon.pokemon.forEach((element) => {
+            const $articlePokemon = document.createElement("article"), $figurePokemon = document.createElement("figure"), $imgPokemon = document.createElement("img"), $figcaptionPokemon = document.createElement("figcaption"), $textPokemon = document.createTextNode(element.pokemon.name);
+            $imgPokemon.setAttribute("alt", element.pokemon.name);
+            $imgPokemon.setAttribute("title", element.pokemon.name);
+            const getImpPokemon = new GetImgPokemon(element.pokemon.url, $imgPokemon);
+            $figcaptionPokemon.appendChild($textPokemon);
+            $figurePokemon.appendChild($imgPokemon);
+            $figurePokemon.appendChild($figcaptionPokemon);
+            $articlePokemon.appendChild($figurePokemon);
+            $fragment.appendChild($articlePokemon);
+        });
+        $boxPokemons.appendChild($fragment);
+        (_a = this.htmlElements.$pokemon) === null || _a === void 0 ? void 0 : _a.appendChild($boxPokemons);
+    }
+    printSinglePokemon(data) {
+        var _a;
+        const dataPokemon = data, $boxPokemons = document.createElement("div");
+        let $fragment = document.createDocumentFragment();
+        $boxPokemons.setAttribute("id", "pokemon-box");
+        const $articlePokemon = document.createElement("article"), $figurePokemon = document.createElement("figure"), $imgPokemon = document.createElement("img"), $figcaptionPokemon = document.createElement("figcaption"), $textPokemon = document.createTextNode(data.name);
+        $imgPokemon.setAttribute("alt", data.name);
+        $imgPokemon.setAttribute("title", data.name);
+        $imgPokemon.setAttribute("src", data.sprites.front_default);
+        $figcaptionPokemon.appendChild($textPokemon);
+        $figurePokemon.appendChild($imgPokemon);
+        $figurePokemon.appendChild($figcaptionPokemon);
+        $articlePokemon.appendChild($figurePokemon);
+        $fragment.appendChild($articlePokemon);
         $boxPokemons.appendChild($fragment);
         (_a = this.htmlElements.$pokemon) === null || _a === void 0 ? void 0 : _a.appendChild($boxPokemons);
     }

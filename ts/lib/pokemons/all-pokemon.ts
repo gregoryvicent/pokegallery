@@ -1,5 +1,6 @@
 import FetchPokemon from "./fetch-pokemon.js";
 import PrintAllPokemons from "../print/print-all-pokemons.js";
+import SettingButtons from "../buttons/setting-buttons.js";
 import { dataInterface } from "../interfaces.js";
 
 export default class AllPokemon extends FetchPokemon {
@@ -8,8 +9,11 @@ export default class AllPokemon extends FetchPokemon {
   }
 
   protected ejecute(response: dataInterface): void {
-    const printAllPokemons: PrintAllPokemons = new PrintAllPokemons(response);
+    const printAllPokemons: PrintAllPokemons = new PrintAllPokemons();
+    const settingButtons: SettingButtons = new SettingButtons(response);
 
-    printAllPokemons.printPokemons()
+    printAllPokemons.erasePokemons();
+    printAllPokemons.printPokemons(response);
+    settingButtons.settingButtons();
   }
 }

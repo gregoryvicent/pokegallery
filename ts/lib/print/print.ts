@@ -5,7 +5,14 @@ export default abstract class Print {
     $pokemon: document.getElementById("pokemon"),
   };
 
-  public abstract printPokemons(): void;
+  public abstract printPokemons(responseData: object): void;
 
-  erasePokemons(): void {}
+  erasePokemons(): void {
+    let $pokemonBox: any =
+      this.htmlElements.$pokemon?.querySelector("#pokemon-box");
+
+    if ($pokemonBox !== null) {
+      this.htmlElements.$pokemon?.removeChild($pokemonBox);
+    }
+  }
 }

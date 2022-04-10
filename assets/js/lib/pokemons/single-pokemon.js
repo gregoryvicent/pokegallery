@@ -1,0 +1,12 @@
+import FetchPokemon from "./fetch-pokemon.js";
+import PrintAllPokemons from "../print/print-all-pokemons.js";
+export default class SinglePokemon extends FetchPokemon {
+    constructor(data) {
+        super(data);
+    }
+    ejecute(response) {
+        const printAllPokemons = new PrintAllPokemons();
+        printAllPokemons.erasePokemons();
+        printAllPokemons.printSinglePokemon(response);
+    }
+}

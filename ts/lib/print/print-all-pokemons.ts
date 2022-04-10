@@ -1,19 +1,24 @@
 import Print from "./print.js";
 import GetImgPokemon from "../pokemons/get-img-pokemon.js";
-import { dataInterface, pokemonInterface } from "../interfaces.js";
+import {
+  dataInterface,
+  typePokemon,
+  pokemonInterface,
+  singlePokemonInterface,
+} from "../interfaces.js";
 
 export default class PrintAllPokemons extends Print {
-  private data: dataInterface;
-  constructor(data: dataInterface) {
+  constructor() {
     super();
-    this.data = data;
   }
 
-  public printPokemons(): void {
-    const dataPokemon = this.data,
+  public printPokemons(data: dataInterface): void {
+    const dataPokemon = data,
       $boxPokemons: HTMLElement = document.createElement("div");
 
     let $fragment: Node = document.createDocumentFragment();
+
+    $boxPokemons.setAttribute("id", "pokemon-box");
 
     dataPokemon.results.forEach((element: pokemonInterface) => {
       const $articlePokemon: HTMLElement = document.createElement("article"),
@@ -25,7 +30,10 @@ export default class PrintAllPokemons extends Print {
       $imgPokemon.setAttribute("alt", element.name);
       $imgPokemon.setAttribute("title", element.name);
 
-      const getImpPokemon: GetImgPokemon = new GetImgPokemon(element.url, $imgPokemon);
+      const getImpPokemon: GetImgPokemon = new GetImgPokemon(
+        element.url,
+        $imgPokemon
+      );
 
       $figcaptionPokemon.appendChild($textPokemon);
       $figurePokemon.appendChild($imgPokemon);
@@ -34,6 +42,70 @@ export default class PrintAllPokemons extends Print {
 
       $fragment.appendChild($articlePokemon);
     });
+
+    $boxPokemons.appendChild($fragment);
+    this.htmlElements.$pokemon?.appendChild($boxPokemons);
+  }
+
+  public printTypePokemons(data: typePokemon): void {
+    const dataPokemon = data,
+      $boxPokemons: HTMLElement = document.createElement("div");
+
+    let $fragment: Node = document.createDocumentFragment();
+
+    $boxPokemons.setAttribute("id", "pokemon-box");
+
+    dataPokemon.pokemon.forEach((element: any) => {
+      const $articlePokemon: HTMLElement = document.createElement("article"),
+        $figurePokemon: HTMLElement = document.createElement("figure"),
+        $imgPokemon: HTMLElement = document.createElement("img"),
+        $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
+        $textPokemon: Node = document.createTextNode(element.pokemon.name);
+
+      $imgPokemon.setAttribute("alt", element.pokemon.name);
+      $imgPokemon.setAttribute("title", element.pokemon.name);
+
+      const getImpPokemon: GetImgPokemon = new GetImgPokemon(
+        element.pokemon.url,
+        $imgPokemon
+      );
+
+      $figcaptionPokemon.appendChild($textPokemon);
+      $figurePokemon.appendChild($imgPokemon);
+      $figurePokemon.appendChild($figcaptionPokemon);
+      $articlePokemon.appendChild($figurePokemon);
+
+      $fragment.appendChild($articlePokemon);
+    });
+
+    $boxPokemons.appendChild($fragment);
+    this.htmlElements.$pokemon?.appendChild($boxPokemons);
+  }
+
+  public printSinglePokemon(data: singlePokemonInterface): void {
+    const dataPokemon = data,
+      $boxPokemons: HTMLElement = document.createElement("div");
+
+    let $fragment: Node = document.createDocumentFragment();
+
+    $boxPokemons.setAttribute("id", "pokemon-box");
+
+    const $articlePokemon: HTMLElement = document.createElement("article"),
+      $figurePokemon: HTMLElement = document.createElement("figure"),
+      $imgPokemon: HTMLElement = document.createElement("img"),
+      $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
+      $textPokemon: Node = document.createTextNode(data.name);
+
+    $imgPokemon.setAttribute("alt", data.name);
+    $imgPokemon.setAttribute("title", data.name);
+    $imgPokemon.setAttribute("src", data.sprites.front_default);
+
+    $figcaptionPokemon.appendChild($textPokemon);
+    $figurePokemon.appendChild($imgPokemon);
+    $figurePokemon.appendChild($figcaptionPokemon);
+    $articlePokemon.appendChild($figurePokemon);
+
+    $fragment.appendChild($articlePokemon);
 
     $boxPokemons.appendChild($fragment);
     this.htmlElements.$pokemon?.appendChild($boxPokemons);

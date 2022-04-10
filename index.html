@@ -20,15 +20,33 @@
   <main class="container">
     <nav class="row justify-content-around p-3" id="filter">
       <form style="background-color: red;" action="" class="col-3">
-        <input type="search">
+        <input type="search" id="search-bar">
+        <input type="submit" value="search" class="Button-search">
       </form>
 
       <div style="background-color: blue;" class="col-2">
-        <input type="button" value="btn">
-        <input type="button" value="btn">
-        <input type="button" value="btn">
-        <input type="button" value="btn">
-        <input type="button" value="btn">
+        <select name="type-pokemon" id="type-pokemon">
+          <option value="https://pokeapi.co/api/v2/type/1/" class="filter-pokemon">Normal</option>
+          <option value="https://pokeapi.co/api/v2/type/2/" class="filter-pokemon">Fighting</option>
+          <option value="https://pokeapi.co/api/v2/type/3/" class="filter-pokemon">Flying</option>
+          <option value="https://pokeapi.co/api/v2/type/4/" class="filter-pokemon">Poison</option>
+          <option value="https://pokeapi.co/api/v2/type/5/" class="filter-pokemon">Ground</option>
+          <option value="https://pokeapi.co/api/v2/type/6/" class="filter-pokemon">Rock</option>
+          <option value="https://pokeapi.co/api/v2/type/7/" class="filter-pokemon">Bug</option>
+          <option value="https://pokeapi.co/api/v2/type/8/" class="filter-pokemon">Ghost</option>
+          <option value="https://pokeapi.co/api/v2/type/9/" class="filter-pokemon">Steel</option>
+          <option value="https://pokeapi.co/api/v2/type/10/" class="filter-pokemon">Fire</option>
+          <option value="https://pokeapi.co/api/v2/type/11/" class="filter-pokemon">Water</option>
+          <option value="https://pokeapi.co/api/v2/type/12/" class="filter-pokemon">Grass</option>
+          <option value="https://pokeapi.co/api/v2/type/13/" class="filter-pokemon">Electric</option>
+          <option value="https://pokeapi.co/api/v2/type/14/" class="filter-pokemon">psychic</option>
+          <option value="https://pokeapi.co/api/v2/type/15/" class="filter-pokemon">Ice</option>
+          <option value="https://pokeapi.co/api/v2/type/16/" class="filter-pokemon">Dragon</option>
+          <option value="https://pokeapi.co/api/v2/type/17/" class="filter-pokemon">Dark</option>
+          <option value="https://pokeapi.co/api/v2/type/18/" class="filter-pokemon">Fairy</option>
+          <option value="https://pokeapi.co/api/v2/type/10001/" class="filter-pokemon">Unknow</option>
+          <option value="https://pokeapi.co/api/v2/type/10002/" class="filter-pokemon">Shadow</option>
+        </select>
       </div>
     </nav>
 
@@ -36,10 +54,10 @@
 
     <nav class="row justify-content-between" id="nav">
       <div class="col-3" id="box-button-back">
-        <a href="#">Back</a>
+        <a href="#" class="Button-previous">Back</a>
       </div>
       <div class="col-3" id="box-button-next">
-        <a href="#">Next</a>
+        <a href="#" class="Button-next">Next</a>
       </div>
     </nav>
   </main>

@@ -11,8 +11,8 @@ export default class GetImgPokemon extends FetchPokemon {
   }
 
   protected ejecute(response: singlePokemonInterface): void {
-    const printImgPokemon: PrintImgPokemon = new PrintImgPokemon(response, this.imgElementHtml);
+    const printImgPokemon: PrintImgPokemon = new PrintImgPokemon(this.imgElementHtml);
     
-    printImgPokemon.printPokemons();
+    printImgPokemon.printPokemons(response);
   }
 }

@@ -23,3 +23,12 @@ export interface singlePokemonInterface {
     front_default: string;
   };
 }
+
+export interface typePokemon {
+  pokemon: {
+    pokemon: {
+      name: string;
+      url: string;
+    };
+  }[];
+}
