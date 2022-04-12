@@ -32,3 +32,9 @@ export interface typePokemon {
     };
   }[];
 }
+
+export interface spritePokemonInterface {
+  sprites: {
+    front_default: string | null;
+  };
+}

@@ -10,7 +10,7 @@ export default class SinglePokemon extends FetchPokemon {
   protected ejecute(response: singlePokemonInterface): void {
     const printAllPokemons: PrintAllPokemons = new PrintAllPokemons();
 
-    printAllPokemons.erasePokemons()
+    printAllPokemons.erasePokemons();
     printAllPokemons.printSinglePokemon(response);
   }
 }

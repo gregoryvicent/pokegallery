@@ -2,6 +2,7 @@ import Buttons from "./buttons.js";
 import AllPokemon from "../pokemons/all-pokemon.js";
 import SinglePokemon from "../pokemons/single-pokemon.js";
 import TypePokemon from "../pokemons/type-pokemon.js";
+import printLoader from "../../helpers/print-loader.js";
 
 export default class ButtonEvents extends Buttons {
   constructor() {
@@ -18,7 +19,7 @@ export default class ButtonEvents extends Buttons {
       e.preventDefault();
 
       let urlEndPoint: string = this.$nextButton?.getAttribute(
-        "href"
+        "data-href"
       ) as string;
 
       const allPokemon: AllPokemon = new AllPokemon(urlEndPoint);
@@ -30,7 +31,7 @@ export default class ButtonEvents extends Buttons {
       e.preventDefault();
 
       let urlEndPoint: string = this.$previousButton?.getAttribute(
-        "href"
+        "data-href"
       ) as string;
 
       const allPokemon: AllPokemon = new AllPokemon(urlEndPoint);
@@ -46,9 +47,18 @@ export default class ButtonEvents extends Buttons {
   }
 
   private serchBar(): void {
-    this.$searchButton?.addEventListener("click", () => {
-      const pokemonName: string = this.$searchBar.value,
-        singlePokemon: SinglePokemon = new SinglePokemon(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
-    })
+    this.$searchButton?.addEventListener("click", (e: Event) => {
+      e.preventDefault();
+
+      const pokemonName: string = this.$searchBar.value;
+
+      if (pokemonName) {
+        printLoader();
+
+        const singlePokemon: SinglePokemon = new SinglePokemon(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`
+        );
+      }
+    });
   }
 }

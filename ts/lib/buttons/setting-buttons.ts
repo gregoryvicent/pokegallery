@@ -10,9 +10,20 @@ export default class SettingButtons extends Buttons {
   }
 
   public settingButtons(): void {
-    if (typeof this.dataButtons.next === "string")
-      this.$nextButton?.setAttribute("href", this.dataButtons.next);
-    if (typeof this.dataButtons.previous === "string")
-      this.$previousButton?.setAttribute("href", this.dataButtons.previous);
+    if (typeof this.dataButtons.next === "string") {
+      this.$nextButton?.setAttribute("data-href", this.dataButtons.next);
+      this.$nextButton?.removeAttribute("disabled");
+    } else {
+      this.$nextButton?.setAttribute("data-href", "#");
+      this.$nextButton?.setAttribute("disabled", "disabled");
+    }
+
+    if (typeof this.dataButtons.previous === "string") {
+      this.$previousButton?.setAttribute("data-href", this.dataButtons.previous);
+      this.$previousButton?.removeAttribute("disabled");
+    } else {
+      this.$previousButton?.setAttribute("data-href", "#");
+      this.$previousButton?.setAttribute("disabled", "disabled");
+    }
   }
 }

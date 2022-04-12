@@ -2,6 +2,7 @@ import Buttons from "./buttons.js";
 import AllPokemon from "../pokemons/all-pokemon.js";
 import SinglePokemon from "../pokemons/single-pokemon.js";
 import TypePokemon from "../pokemons/type-pokemon.js";
+import printLoader from "../../helpers/print-loader.js";
 export default class ButtonEvents extends Buttons {
     constructor() {
         super();
@@ -15,7 +16,7 @@ export default class ButtonEvents extends Buttons {
         (_a = this.$nextButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
             var _a;
             e.preventDefault();
-            let urlEndPoint = (_a = this.$nextButton) === null || _a === void 0 ? void 0 : _a.getAttribute("href");
+            let urlEndPoint = (_a = this.$nextButton) === null || _a === void 0 ? void 0 : _a.getAttribute("data-href");
             const allPokemon = new AllPokemon(urlEndPoint);
         });
     }
@@ -24,7 +25,7 @@ export default class ButtonEvents extends Buttons {
         (_a = this.$previousButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
             var _a;
             e.preventDefault();
-            let urlEndPoint = (_a = this.$previousButton) === null || _a === void 0 ? void 0 : _a.getAttribute("href");
+            let urlEndPoint = (_a = this.$previousButton) === null || _a === void 0 ? void 0 : _a.getAttribute("data-href");
             const allPokemon = new AllPokemon(urlEndPoint);
         });
     }
@@ -36,8 +37,13 @@ export default class ButtonEvents extends Buttons {
     }
     serchBar() {
         var _a;
-        (_a = this.$searchButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-            const pokemonName = this.$searchBar.value, singlePokemon = new SinglePokemon(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+        (_a = this.$searchButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
+            e.preventDefault();
+            const pokemonName = this.$searchBar.value;
+            if (pokemonName) {
+                printLoader();
+                const singlePokemon = new SinglePokemon(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+            }
         });
     }
 }

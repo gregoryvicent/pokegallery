@@ -26,27 +26,38 @@ export default class PrintAllPokemons extends Print {
       const $articlePokemon: HTMLElement = document.createElement("article"),
         $figurePokemon: HTMLElement = document.createElement("figure"),
         $imgPokemon: HTMLElement = document.createElement("img"),
-        $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
-        $textPokemon: Node = document.createTextNode(element.name);
+        $boxButtonPokemon: HTMLElement = document.createElement("div"),
+        $buttonPokemon: HTMLElement = document.createElement("input");
 
       $articlePokemon.classList.add("col");
-      $figcaptionPokemon.classList.add("text-center");
-      $imgPokemon.classList.add("img-fluid")
-      $imgPokemon.classList.add("rounded")
-      $imgPokemon.classList.add("mx-auto")
-      $imgPokemon.classList.add("d-block")
+      $articlePokemon.classList.add("p-5");
+      $figurePokemon.classList.add("Pokemon-figure");
+      $imgPokemon.classList.add("img-fluid");
+      $imgPokemon.classList.add("rounded");
+      $imgPokemon.classList.add("mx-auto");
+      $imgPokemon.classList.add("d-block");
+      $imgPokemon.classList.add("w-50");
+      $boxButtonPokemon.classList.add("Button-boxButtonPokemon");
+      $buttonPokemon.classList.add("Button-pokemon");
+      $buttonPokemon.classList.add("btn");
+      $buttonPokemon.classList.add("btn-danger");
 
+      $imgPokemon.setAttribute("src", "./assets/img/login.svg");
       $imgPokemon.setAttribute("alt", element.name);
       $imgPokemon.setAttribute("title", element.name);
+      $buttonPokemon.setAttribute("type", "button");
+      $buttonPokemon.setAttribute("value", element.name);
+      $buttonPokemon.setAttribute("data-bs-toggle", "modal");
+      $buttonPokemon.setAttribute("data-bs-target", "#exampleModal");
 
       const getImpPokemon: GetImgPokemon = new GetImgPokemon(
         element.url,
         $imgPokemon
       );
 
-      $figcaptionPokemon.appendChild($textPokemon);
       $figurePokemon.appendChild($imgPokemon);
-      $figurePokemon.appendChild($figcaptionPokemon);
+      $boxButtonPokemon.appendChild($buttonPokemon);
+      $figurePokemon.appendChild($boxButtonPokemon);
       $articlePokemon.appendChild($figurePokemon);
 
       $fragment.appendChild($articlePokemon);
@@ -70,27 +81,36 @@ export default class PrintAllPokemons extends Print {
       const $articlePokemon: HTMLElement = document.createElement("article"),
         $figurePokemon: HTMLElement = document.createElement("figure"),
         $imgPokemon: HTMLElement = document.createElement("img"),
-        $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
-        $textPokemon: Node = document.createTextNode(element.pokemon.name);
-
-      $imgPokemon.setAttribute("alt", element.pokemon.name);
-      $imgPokemon.setAttribute("title", element.pokemon.name);
+        $boxButtonPokemon: HTMLElement = document.createElement("div"),
+        $buttonPokemon: HTMLElement = document.createElement("input");
 
       $articlePokemon.classList.add("col");
-      $figcaptionPokemon.classList.add("text-center");
-      $imgPokemon.classList.add("img-fluid")
-      $imgPokemon.classList.add("rounded")
-      $imgPokemon.classList.add("mx-auto")
-      $imgPokemon.classList.add("d-block")
+      $articlePokemon.classList.add("p-5");
+      $figurePokemon.classList.add("Pokemon-figure");
+      $imgPokemon.classList.add("img-fluid");
+      $imgPokemon.classList.add("rounded");
+      $imgPokemon.classList.add("mx-auto");
+      $imgPokemon.classList.add("d-block");
+      $imgPokemon.classList.add("w-50");
+      $boxButtonPokemon.classList.add("Button-boxButtonPokemon");
+      $buttonPokemon.classList.add("Button-pokemon");
+      $buttonPokemon.classList.add("btn");
+      $buttonPokemon.classList.add("btn-danger");
+
+      $imgPokemon.setAttribute("src", "./assets/img/login.svg");
+      $imgPokemon.setAttribute("alt", element.pokemon.name);
+      $imgPokemon.setAttribute("title", element.pokemon.name);
+      $buttonPokemon.setAttribute("type", "button");
+      $buttonPokemon.setAttribute("value", element.pokemon.name);
 
       const getImpPokemon: GetImgPokemon = new GetImgPokemon(
         element.pokemon.url,
         $imgPokemon
       );
 
-      $figcaptionPokemon.appendChild($textPokemon);
       $figurePokemon.appendChild($imgPokemon);
-      $figurePokemon.appendChild($figcaptionPokemon);
+      $boxButtonPokemon.appendChild($buttonPokemon);
+      $figurePokemon.appendChild($boxButtonPokemon);
       $articlePokemon.appendChild($figurePokemon);
 
       $fragment.appendChild($articlePokemon);
@@ -104,28 +124,41 @@ export default class PrintAllPokemons extends Print {
     const dataPokemon = data,
       $boxPokemons: HTMLElement = document.createElement("div");
 
-    let $fragment: Node = document.createDocumentFragment();
-
     $boxPokemons.setAttribute("id", "pokemon-box");
 
     const $articlePokemon: HTMLElement = document.createElement("article"),
       $figurePokemon: HTMLElement = document.createElement("figure"),
       $imgPokemon: HTMLElement = document.createElement("img"),
-      $figcaptionPokemon: HTMLElement = document.createElement("figcaption"),
-      $textPokemon: Node = document.createTextNode(data.name);
+      $boxButtonPokemon: HTMLElement = document.createElement("div"),
+      $buttonPokemon: HTMLElement = document.createElement("input");
 
-    $imgPokemon.setAttribute("alt", data.name);
-    $imgPokemon.setAttribute("title", data.name);
-    $imgPokemon.setAttribute("src", data.sprites.front_default);
+    $boxPokemons.classList.add("row");
+    $boxPokemons.classList.add("justify-content-center");
+    $articlePokemon.classList.add("col-3");
+    $articlePokemon.classList.add("p-5");
+    $figurePokemon.classList.add("Pokemon-figure");
+    $imgPokemon.classList.add("img-fluid");
+    $imgPokemon.classList.add("rounded");
+    $imgPokemon.classList.add("mx-auto");
+    $imgPokemon.classList.add("d-block");
+    $boxButtonPokemon.classList.add("Button-boxButtonPokemon");
+    $buttonPokemon.classList.add("Button-pokemon");
+    $buttonPokemon.classList.add("btn");
+    $buttonPokemon.classList.add("btn-danger");
 
-    $figcaptionPokemon.appendChild($textPokemon);
-    $figurePokemon.appendChild($imgPokemon);
-    $figurePokemon.appendChild($figcaptionPokemon);
-    $articlePokemon.appendChild($figurePokemon);
+    $imgPokemon.setAttribute("src", dataPokemon.sprites.front_default);
+    $imgPokemon.setAttribute("alt", dataPokemon.name);
+    $imgPokemon.setAttribute("title", dataPokemon.name);
+    $buttonPokemon.setAttribute("type", "button");
+    $buttonPokemon.setAttribute("value", dataPokemon.name);
 
-    $fragment.appendChild($articlePokemon);
+      $figurePokemon.appendChild($imgPokemon);
+      $boxButtonPokemon.appendChild($buttonPokemon);
+      $figurePokemon.appendChild($boxButtonPokemon);
+      $articlePokemon.appendChild($figurePokemon);
 
-    $boxPokemons.appendChild($fragment);
+
+    $boxPokemons.appendChild($articlePokemon);
     this.htmlElements.$pokemon?.appendChild($boxPokemons);
   }
 }
