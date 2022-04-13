@@ -42,7 +42,9 @@ export default class ButtonEvents extends Buttons {
     this.$selectFilter.addEventListener("change", () => {
       let urlEndPoint: string = this.$selectFilter.value;
 
-      const typePokemon: TypePokemon = new TypePokemon(urlEndPoint);
+      if(urlEndPoint) {
+        const typePokemon: TypePokemon = new TypePokemon(urlEndPoint);
+      }
     });
   }
 

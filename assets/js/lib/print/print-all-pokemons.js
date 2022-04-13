@@ -63,6 +63,8 @@ export default class PrintAllPokemons extends Print {
             $buttonPokemon.classList.add("Button-pokemon");
             $buttonPokemon.classList.add("btn");
             $buttonPokemon.classList.add("btn-danger");
+            $buttonPokemon.setAttribute("data-bs-toggle", "modal");
+            $buttonPokemon.setAttribute("data-bs-target", "#exampleModal");
             $imgPokemon.setAttribute("src", "./assets/img/login.svg");
             $imgPokemon.setAttribute("alt", element.pokemon.name);
             $imgPokemon.setAttribute("title", element.pokemon.name);
@@ -96,6 +98,8 @@ export default class PrintAllPokemons extends Print {
         $buttonPokemon.classList.add("Button-pokemon");
         $buttonPokemon.classList.add("btn");
         $buttonPokemon.classList.add("btn-danger");
+        $buttonPokemon.setAttribute("data-bs-toggle", "modal");
+        $buttonPokemon.setAttribute("data-bs-target", "#exampleModal");
         $imgPokemon.setAttribute("src", dataPokemon.sprites.front_default);
         $imgPokemon.setAttribute("alt", dataPokemon.name);
         $imgPokemon.setAttribute("title", dataPokemon.name);

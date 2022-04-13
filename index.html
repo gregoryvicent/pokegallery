@@ -29,7 +29,7 @@
 
     <nav class="row justify-content-around p-5" id="filter">
       <form action="" class="row col-4">
-        <input type="search" id="search-bar" class="col-9 form-control w-75">
+        <input type="search" id="search-bar" class="col-9 form-control w-75" placeholder="Search a Pokemon">
         <input type="submit" value="search" class="col-3 Button-search btn btn-secondary">
       </form>
 
@@ -66,11 +66,28 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Loader...</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
+              <img src="./assets/img/login.svg" alt="Loader..." class="mx-auto d-block m-5">
+              <ul>
+                <li id="item-id">ID: Loader...</li>
+                <li id="item-name">Name: Loader...</li>
+                <li id="item-baseExperience">Base Experience: Loader...</li>
+                <li id="item-abilities">Abilities: Loader...</li>
+                <li id="item-type">Type: Loader...</li>
+                <li>Stats:
+                  <ul>
+                    <li id="item-hp">HP: Loader...</li>
+                    <li id="item-attack">ATTACK: Loader...</li>
+                    <li id="item-defense">DEFENSE: Loader...</li>
+                    <li id="item-specialAttack">SPECIAL-ATTACK: Loader...</li>
+                    <li id="item-specialDefense">SPECIAL-DEFENSE: Loader...</li>
+                    <li id="item-speet">SPEED: Loader...</li>
+                  </ul>
+                </li>              
+              </ul>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
