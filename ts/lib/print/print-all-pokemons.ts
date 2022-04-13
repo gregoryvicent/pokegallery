@@ -20,7 +20,10 @@ export default class PrintAllPokemons extends Print {
 
     $boxPokemons.setAttribute("id", "pokemon-box");
     $boxPokemons.classList.add("row");
-    $boxPokemons.classList.add("row-cols-4");
+    $boxPokemons.classList.add("row-cols-1");
+    $boxPokemons.classList.add("row-cols-sm-2");
+    $boxPokemons.classList.add("row-cols-lg-3");
+    $boxPokemons.classList.add("row-cols-xl-4");
 
     dataPokemon.results.forEach((element: pokemonInterface) => {
       const $articlePokemon: HTMLElement = document.createElement("article"),
@@ -30,13 +33,13 @@ export default class PrintAllPokemons extends Print {
         $buttonPokemon: HTMLElement = document.createElement("input");
 
       $articlePokemon.classList.add("col");
-      $articlePokemon.classList.add("p-5");
+      $articlePokemon.classList.add("p-sm-5");
+      $articlePokemon.classList.add("p-3");
       $figurePokemon.classList.add("Pokemon-figure");
       $imgPokemon.classList.add("img-fluid");
       $imgPokemon.classList.add("rounded");
       $imgPokemon.classList.add("mx-auto");
       $imgPokemon.classList.add("d-block");
-      $imgPokemon.classList.add("w-50");
       $boxButtonPokemon.classList.add("Button-boxButtonPokemon");
       $buttonPokemon.classList.add("Button-pokemon");
       $buttonPokemon.classList.add("btn");
@@ -75,7 +78,10 @@ export default class PrintAllPokemons extends Print {
 
     $boxPokemons.setAttribute("id", "pokemon-box");
     $boxPokemons.classList.add("row");
-    $boxPokemons.classList.add("row-cols-4");
+    $boxPokemons.classList.add("row-cols-1");
+    $boxPokemons.classList.add("row-cols-sm-2");
+    $boxPokemons.classList.add("row-cols-lg-3");
+    $boxPokemons.classList.add("row-cols-xl-4");
 
     dataPokemon.pokemon.forEach((element: any) => {
       const $articlePokemon: HTMLElement = document.createElement("article"),
@@ -85,13 +91,13 @@ export default class PrintAllPokemons extends Print {
         $buttonPokemon: HTMLElement = document.createElement("input");
 
       $articlePokemon.classList.add("col");
-      $articlePokemon.classList.add("p-5");
+      $articlePokemon.classList.add("p-sm-5");
+      $articlePokemon.classList.add("p-3");
       $figurePokemon.classList.add("Pokemon-figure");
       $imgPokemon.classList.add("img-fluid");
       $imgPokemon.classList.add("rounded");
       $imgPokemon.classList.add("mx-auto");
       $imgPokemon.classList.add("d-block");
-      $imgPokemon.classList.add("w-50");
       $boxButtonPokemon.classList.add("Button-boxButtonPokemon");
       $buttonPokemon.classList.add("Button-pokemon");
       $buttonPokemon.classList.add("btn");
@@ -136,7 +142,10 @@ export default class PrintAllPokemons extends Print {
 
     $boxPokemons.classList.add("row");
     $boxPokemons.classList.add("justify-content-center");
-    $articlePokemon.classList.add("col-3");
+    $articlePokemon.classList.add("col-xl-3");
+    $articlePokemon.classList.add("col-lg-4");
+    $articlePokemon.classList.add("col-md-5");
+    $articlePokemon.classList.add("col-sm-6");
     $articlePokemon.classList.add("p-5");
     $figurePokemon.classList.add("Pokemon-figure");
     $imgPokemon.classList.add("img-fluid");
